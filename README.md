@@ -1,4 +1,10 @@
 # aws_python apuntes
+
+### Estandar PEP8 (flake8) -> valida que el codigo este bien escrito
+~~~
+La barra diagonal invertida final (\) en el valor de la variable del paso anterior se utiliza para mantener el cumplimiento de la guía de estilo Propuestas de Mejora de Python (PEP) 
+~~~
+
 ## Tipos de datos
 ##### type() identifica que tipo de datos es la variable
 ~~~
@@ -260,3 +266,38 @@ python -m pdb <filename>
 ~~~
 ## LOGS         -> guarda regitros en python
 #### monitoreo de registro 
+
+## DevOps -> ingenieros de confiabilidad -> Development operations
+https://devopslatam.com/tabla-periodica-de-herramientas-devops/
+#### cultura (consjunto de buenas practica, guia de lo que se podria hacer )y practica de ingenieria de software, cuyo obj es unificar el desarollo dev  y operaciones ops de softare 
+#### ayuda a apoyar estrategias para crear organizaciones de alto rendimiento 
+#### para trabajar de forma continua entre ti tradicional , desarrollo de software y control de calidad
+
+#### caracteristica principal, es permite la automatizacion y el monitoreo en todas las etapas de la creacion de software 
+##### automatizacion 
+##### lean -> lo justo y mecesario / eficaz
+##### medicion -> tomar el tiempo de las cosas (tiempo de mejora)
+##### uso compartido -> practicas y metodologia que se comparte y trabajo en equipo
+
+###### metodologia agil ???? no secuencial
+pequeñas mejoras continuas
+
+integracion y entrega continuas CI/C :
+
+
+implementacion
+aumatizacion
+     compilacion
+     pruebas
+     
+riegos de la automatizacion
+sobreautomatizacion
+subautomatizacion
+automatización deficiente
+
+     
+Integracion continua: asegurarse de que el codigo funciona con lo que ya se ha hecho 
+                      asegurarse que LO QUE INTEGREMOS NO ROMPA EL CODIGO, SIGA FUNCIOANNDO CON NOSRMALIDAD 
+Entrega continua : ya probe "eso funciona" ahora quiero lanzarlo e implementar
+garantiza que se pueda desplegar de fomar correcta 
+IMPLEMENTACION
