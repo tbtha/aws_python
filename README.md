@@ -150,7 +150,7 @@ nuevaLista2 = [fruta for fruta in frutas if "a" in fruta]
 ~~~ 
 
 ·· importar archivos (permite trabajar con otros archivo )
-        with open ("filesname.txt") as archivonuevo
+        with open ("filesname.txt") as archivonuevo:
         data = archivonuevo.read()
         
 ·· importar funciones de otros archivos
@@ -301,3 +301,12 @@ Integracion continua: asegurarse de que el codigo funciona con lo que ya se ha h
 Entrega continua : ya probe "eso funciona" ahora quiero lanzarlo e implementar
 garantiza que se pueda desplegar de fomar correcta 
 IMPLEMENTACION
+
+infraestructura 
+como organizo un repositorio de codigo para que las ersonals puedan trabajar
+herramientas y plantillas
+por estilo -> pylint : se encarga de ver que el codigo este bien escrito
+por logica -> pytest : de que la logica del codigo este clara
+
+administracion de la configuracion de software
+-> control de versiones 
