@@ -326,3 +326,11 @@ administracion de la configuracion de software
 + NOT NULL : entrada obligatoria de datos 
 + PRIMARY KEY : para relacionar datos y no tener redundancia 
 + FORENG KEY : relacion con PRIMARY KEY 
+
+
+## Sistema de gestion de base de datos (DBMS)
+#### software qur proporciona funcionalidad de base de datos 
+
+### BASE DE DATOS COMO SERVICIO (DBaaS)
+
+###Interacion con los datos a traves de SQL 
