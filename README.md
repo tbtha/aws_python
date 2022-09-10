@@ -279,6 +279,7 @@ https://devopslatam.com/tabla-periodica-de-herramientas-devops/
 ##### medicion -> tomar el tiempo de las cosas (tiempo de mejora)
 ##### uso compartido -> practicas y metodologia que se comparte y trabajo en equipo
 
+~~~
 ###### metodologia agil ???? no secuencial
 pequeñas mejoras continuas
 
@@ -310,3 +311,16 @@ por logica -> pytest : de que la logica del codigo este clara
 
 administracion de la configuracion de software
 -> control de versiones 
+~~~
+
+## BASE DE DATOS 
+#### DATOS: trosos de info en bruto / partes y fragmentos de info sin procesar (bits de infomacion)
+#### una base de datos es un conjunto de datos que se organiza en archivos denominados TABLAS (son formas logicas de acceder a los datos gestionarlos y actualizarlos )
+#### MODELO DE DATOS : estructura logica de una base de datos 
+           ##### modelo no relacional : no requiere una definicion fija de la estructura de los datos / estructura mucho mas flexible ante cambios de esquema
+     #### modelo relacional o SQL(Structured Query Language) : se creo para manejar mejor grandes cantidades de datos / conjunto de elementos de datos que tienen relaciones predefinidas entre ellos 
+      ##### FILAS -
+      #### COLUMNAS |
++ NOT NULL : entrada obligatoria de datos 
++ PRIMARY KEY : para relacionar datos y no tener redundancia 
++ FORENG KEY : relacion con PRIMARY KEY 
