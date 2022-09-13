@@ -313,24 +313,104 @@ administracion de la configuracion de software
 -> control de versiones 
 ~~~
 
-## BASE DE DATOS 
+## BASE DE DATOS -> orientado a MySQL
 #### DATOS: trosos de info en bruto / partes y fragmentos de info sin procesar (bits de infomacion)
 #### una base de datos es un conjunto de datos que se organiza en archivos denominados TABLAS (son formas logicas de acceder a los datos gestionarlos y actualizarlos )
 #### MODELO DE DATOS : estructura logica de una base de datos 
 
-##### modelo no relacional : no requiere una definicion fija de la estructura de los datos / estructura mucho mas flexible ante cambios de esquema
+##### modelo no relacional : no requiere una definicion fija de la estructura de los datos 
+     -estructura mucho mas flexible ante cambios de esquema
+     -al ser mas flexible, permite añadir datos de forma mas dinamica
+
 #### modelo relacional o SQL(Structured Query Language) : se creo para manejar mejor grandes cantidades de datos / conjunto de elementos de datos que tienen relaciones predefinidas entre ellos 
+
 ##### FILAS -
-#### COLUMNAS 
+#### COLUMNAS |
 
-+ NOT NULL : entrada obligatoria de datos 
-+ PRIMARY KEY : para relacionar datos y no tener redundancia 
-+ FORENG KEY : relacion con PRIMARY KEY 
-
-
+## CRUD: CREATE READ UPDATE DELETE
+#### operaciones que se utilizan en db / consulta/ peticion de datos 
+ 
 ## Sistema de gestion de base de datos (DBMS)
+#### MOTORES DE BD RELACIONALES : MySQL , SQL Server, Postgres, Oracle SQL
+
+ *
 #### software qur proporciona funcionalidad de base de datos 
-
 ### BASE DE DATOS COMO SERVICIO (DBaaS)
+### Interacion con los datos a traves de SQL 
+*
+## Grupo de instrucciones SQL
 
-###Interacion con los datos a traves de SQL 
+#### lenguaje de manipulacion de datos DML : SELECT, UPDATE, INSERT, DELETE
+#### lenguaje de definicion de datos DDl : CREATE TABLE, DROP TABLE
+#### lenguaje de control de datos DCL : REVOKE, GRANT
+
+##Tipos de datos 
+#### predefinidos: ya definido en un motor de plantilla (pueden ser no compatible con otros motores de plantillas, utilizar tipo de datos standar como sea posile )
+#### construidos: 
+#### definidos: 
+~~~
+     NUMERICOS
+INTEGER: n entero  valor min y max dependiendo de motor de plantilla
+SMALLINT: igual que tipo interget, porque contieneun rango de valor menor -999 999
+BEGINT : igual que tipo interget,puede contener un rango de valor mayor
+DECIMAL: (p,s) la escala no puede superar la precision
+DECIMAL: almacenar los valores monetarios, en lugar de FLOAT o REAL(no ocuapr para tipo de datos exactos,para contabilidad no )
+NUMERIC:(p,s) la precision depende de DBMS
+FLOAT: 
+REAL:
+DATE: dd-mm-aaa
+TIME: hh:mm:ss
+DATETIME: fecha y hora
+TIMESTAMP: fecha y hora y zona horaria de transaccion
+INTERVAL: representa periodo de tiempo 60:00 interavalo o duracion 
+~~~
+~~~
+     CHARACTER STRING
+CHAR: cadena de caracter de longitud fija CHAR(2)
+VARCHAR: cadena de caracter de longitud variable, longitud maxima fijada
+CLOB: obj grande de caracter, referencia de una ubicacion(ruta drive, ruta de archivo)
+~~~
+
+#### Restricciones
++ NOT NULL : entrada obligatoria de datos /asegura que una columna no continene valor NULL
++ UNIQUE : requiere que una columna o conjunto de columnas tenga valores que sean exclusivos de esas columnas 
++DEFAULT: si no se ha definido nigun valor, default proporciona un valor cuando el DBMS inserta un registro 
+
+
+#### a traves de la claves se comunican las tablas (una referencia a otra )
++ PRIMARY KEY : CLAVE PRINCIPAL tiene un valor unico / para relacionar datos y no tener redundancia 
++ FORENG KEY : CLAVE EXTERNA relacion con PRIMARY KEY 
+
++ Integridad referencial: DB en la que cada valor de clave externa no NULA coincide  con un valor de clave principal existente 
+
+#### Tablas 
++ IF NOT EXISTS : comprobar/validar que no exista una base de datos con ese mismo nombre
+##### sentencias 
++ CREATE TABLE employees
++ CREATE TABLE IF NOT EXIST employees
+~~~
+CREATE TABLE employees(
+employee_is INTERGER NOT NULL PRIMARY KEY,
+given_name varchar(20) DEFAUL NULL,
+FAMILY_NAME VARCHAR(25) NOT NULL,
+dept_is INTERGET NOT NULL
+);
+
+*sintaxis
+INSERT INTO tableName (col_1,col_2,col_3)
+VALUES("VAL_1","VAL_2","VAL_3");
+
+INSERT INTO tableName 
+VALUES("VAL_1","VAL_2","VAL_3");
+
+INSERT INTO tableName (col_1,col_2,col_3)
+VALUES("VAL_1","VAL_2","VAL_3"),
+      ("VAL_11","VAL_52","VAL_23"),
+      ("VAL_21","VAL_32","VAL_31");
+ 
+* podemos insertar valor NULL, si no tiene restricciones 
+~~~
+#### DESCRIBE: proporciona una descripcion de la tabla (DESCRIBE tableName;)
+
+#### Importacion CSV
+####archivo separado por comas(CSV)
