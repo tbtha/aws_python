@@ -433,6 +433,10 @@ SELECT nameCol1, nameCol2
 FROM nameTable
 WHERE nameCol1 = "SL";
 
+GROUP BY -> agrupar por 
+HAVING -> condicion especifica HAVING COUNT(CUSTOMERID) > 5
+ORDER BY -> ordena los resultado
+
 
 
 ~~~
