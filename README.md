@@ -413,4 +413,26 @@ VALUES("VAL_1","VAL_2","VAL_3"),
 #### DESCRIBE: proporciona una descripcion de la tabla (DESCRIBE tableName;)
 
 #### Importacion CSV
-####archivo separado por comas(CSV)
+#### archivo separado por comas(CSV)
+~~~
+LOAS DATA INFILE `rutadearchivo`
+INTO TABLE `nameDB`,`loyalty`
+COLUMN terminated by `.`
+LINES TERMINATED BY `/n`
+IGNORE 1 LINES;
+~~~
+#### SELECT
+~~~
+SELECT * FROM `pub`, `loyalty`;
+
+SELECT COUNT(*) FROM `pub`, `loyalty`;  -> cuenta cantidad de filas
+
+SELECT nameCol1, nameCol2 FROM nameTable; -> especifica que columnas devuelve
+
+SELECT nameCol1, nameCol2 
+FROM nameTable
+WHERE nameCol1 = "SL";
+
+
+
+~~~
