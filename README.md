@@ -416,7 +416,7 @@ VALUES("VAL_1","VAL_2","VAL_3"),
 #### archivo separado por comas(CSV)
 ~~~
 LOAS DATA INFILE `rutadearchivo`
-INTO TABLE `nameDB`,`loyalty`
+INTO TABLE `nameDB`,`nameTable`
 COLUMN terminated by `.`
 LINES TERMINATED BY `/n`
 IGNORE 1 LINES;
@@ -429,14 +429,42 @@ SELECT COUNT(*) FROM `pub`, `loyalty`;  -> cuenta cantidad de filas
 
 SELECT nameCol1, nameCol2 FROM nameTable; -> especifica que columnas devuelve
 
+SELECT nameCol1, nameCol1 + 44 AS newName -> alias 
+SELECT nameCol1, nameCol1 + 44 newName
+SELECT nameCol1, nameCol1 + 44 AS "new Name"
+SELECT nameCol1, newName = nameCol1 + 44
+
 SELECT nameCol1, nameCol2 
 FROM nameTable
-WHERE nameCol1 = "SL";
+WHERE nameCol1 = "SL";   / WHERE IS NOT nameCol1= "SLC
+WHERE nameCol1="NL" OR nameCol1="MA" AND nameCol2="SO"
+
+
 
 GROUP BY -> agrupar por 
 HAVING -> condicion especifica HAVING COUNT(CUSTOMERID) > 5
 ORDER BY -> ordena los resultado
+~~~
+#### OPERADORES
+~~~
+*NUMERICO
+!= es lo mismo que <>
 
+* LOGICO
+ALL -> true si todas son verdaderas
+AND -> true si ambas booleanas son verdadera
+ANY -> true si cualquier de un conjunto de comparacion es verdadera
+BETWEEN -> rango? BETWEEN 50 and 55
+~~~
+
+####Coincidencia de patrones
+~~~
+WHERE bktitle LIKE '%art%' -> devuelve como resultado todas las palabras que coincidan con art ej. starting Art 
+WHERE lowerof(bktitle) LIKE '%art%' -> lowerof devuelve todo en minuscula
+WHERE upperof(bktitle) LIKE '%art%' -> upperof devuelve todo en mayuscula 
+% sustituir uno o varios carcter de un campo
+_ sustituir un solo caracter en una expresion
+WHERE nameCol LIKE '_O%' 
 
 
 ~~~
