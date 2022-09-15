@@ -457,7 +457,7 @@ ANY -> true si cualquier de un conjunto de comparacion es verdadera
 BETWEEN -> rango? BETWEEN 50 and 55
 ~~~
 
-####Coincidencia de patrones
+#### Coincidencia de patrones
 ~~~
 WHERE bktitle LIKE '%art%' -> devuelve como resultado todas las palabras que coincidan con art ej. starting Art 
 WHERE lowerof(bktitle) LIKE '%art%' -> lowerof devuelve todo en minuscula
@@ -466,5 +466,65 @@ WHERE upperof(bktitle) LIKE '%art%' -> upperof devuelve todo en mayuscula
 _ sustituir un solo caracter en una expresion
 WHERE nameCol LIKE '_O%' 
 
+
+~~~
+
+#### Funciones 
+#### Instrucciones 
+~~~
+**FUNCIONES DE TIEMPO
+*DATE_ADDagregar intervalo de fecha
+SELECT bktitle, DATE_ADD (pubdate, INTERVAL 1 MONTH), NOW()
+FROM titles;  
+
+*TIMESSTAMP devuelve cantidad de años comparando dos fechas 
+SELECT bktitle, TIMESSTAMPDIFF (YEAR,pubdate, NOW()) 
+FROM titles; 
+
+**FUNCIONES AGREGADAS -> caracteristica principal, devuelve solo una fila 
+*COUNT -> devuelve una columna con una numero que es la cuanta / AVG -> el promedio de los valores de una columna 
+SELECT COUNT(qty) total_qty,AVG(qty) avg_qty
+FROM sales;
+
+*SUM -> cantidad total del valor total de una columna 
+*MIN -> busca el valor minimo de una columan 
+*MAX -> busca el valor maximo de una columan
+
+* DISTINCT-> solo valores unicos 
+SELECT DISTINCT city, state 
+FROM customers;
+SELECT COUNT(DISTINCT city) as unique_city
+FROM customers ;
+
+**FUNCIONES DE CADENA
+*LEN -> tamaño de una cadena
+SELECT custname, custnum,LEG(custname) as tamañoCadena
+FROM customers
+
+*UPPER -> mayuscula
+*LOWER -> minuscula
+SELECT UPPER(custname), LOWER (custname), city
+FROM customers 
+
+*TRIM -> limpiar espacios al inicio y al final 
+*LTRIM -> limpia por la izquiera 
+*RTRIM -> limmpia por la derecha
+SELECT repid, LTRIM(lname), RTRIM (fname)
+FROM slspers
+
+*subtring_index(columna," ",-1)  -> ????
+*SUBTRING -> EXTRAER PORCIONES DE UNA CADENA DE TEXTO
+SELECT custnum, SUBSTRING(custnam,5,10) as custname,     -> empieza en 10 hasta el 10 (CK MUSIC devuelve USIC)
+
+SUBSTRING('NEW YORK' , 5,4) as statename -> creamos columna que termina llamandose YORK
+FROM custumers 
+
+*CONCAT -> concatenar cadenas de texto (tambien se cocatenan los espacios)
+SELECT repid, CONCAT(lname,fname) as name
+FROM slspers
+
+*CONCAT-TRIM
+SELECT repid,COCAT(TRIM,(lname),',',TRIM(fname)) as name
+FROM slspers
 
 ~~~
