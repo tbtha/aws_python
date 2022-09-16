@@ -439,11 +439,6 @@ FROM nameTable
 WHERE nameCol1 = "SL";   / WHERE IS NOT nameCol1= "SLC
 WHERE nameCol1="NL" OR nameCol1="MA" AND nameCol2="SO"
 
-
-
-GROUP BY -> agrupar por 
-HAVING -> condicion especifica HAVING COUNT(CUSTOMERID) > 5
-ORDER BY -> ordena los resultado
 ~~~
 #### OPERADORES
 ~~~
@@ -473,7 +468,7 @@ WHERE nameCol LIKE '_O%'
 #### Instrucciones 
 ~~~
 **FUNCIONES DE TIEMPO
-*DATE_ADDagregar intervalo de fecha
+*DATE_ADD -> agregar intervalo de fecha
 SELECT bktitle, DATE_ADD (pubdate, INTERVAL 1 MONTH), NOW()
 FROM titles;  
 
@@ -528,3 +523,74 @@ SELECT repid,COCAT(TRIM,(lname),',',TRIM(fname)) as name
 FROM slspers
 
 ~~~
+~~~
+**CLAUSULAS 
+*GROUP BY -> agrupar por 
+    * la columna select debe tener la olumna que pondremos en group by 
+ SELECT repid,SUM(qty) as anual total 
+ FROM sales
+ WHERE YEAR(sldate) = 2017 
+ GROUP BY repid;
+ 
+*HAVING -> condicion especifica  va de la mano a group by HAVING COUNT(CUSTOMERID) > 5
+SELECT repid,SUM(qty) as anual total 
+ FROM sales
+ WHERE YEAR(sldate) = 2017 
+ GROUP BY repid
+ HAVING SUM(qty) >= 2000; -> condicion que me traiga los datos donde la sumatoria se mayor a 2mil
+ 
+ *ROLLLUP ->
+ SELECT repid,custnum,SUM(qty) as anual total 
+ FROM sales
+ WHERE MONTH(sldate) = 3
+ GROUP BY repid, custnum WITH ROLLUP
+ ORDER BY repid, custnum
+ 
+
+*ORDER BY -> ordena los resultado (si no ocupamos una palabra, por defecto se ordena de forma ascendiente)
+    ASC -> ascendente -> valor mas bajo al comienzo y mas bajo alto
+    DESC -> descendiente ->valor mas alto al comienzo y mas bajo a final
+SELECT partnum,slprice
+FROM titles
+ORDE BY slprice ASC, partnum DESC
+
+**FUNCIONES DE CLASIFICACION SELECT 
+*RANK() devuelve el numero de los registros / PARTITION clasifica un conjunto de datos iguales / la columna rank pone el numero de indice por los valores de qty (1,1,3,3)
+SELECTT repid,qty,custnum,
+RANK() OVER (PARTITION BY repid ORDER BY qty DESC) AS 'Rank'
+FROM sales
+
+*DENSE_RANK() -> me entrega valore concecutivos en base a misma funcion RANK (1,2,2,3,4,4)
+*ROW_NUMBER() -> numero secuenciasl de cada fila(1,2,3,4,5,6..)
+
+*NTILE -> va dandole un valor de forma equilivabra de acuerdo a la cantidad de registro 
+SELECTT repid,qty,custnum,
+NTILE(4) OVER ...
+
+*TOP -> limit -> define la cantidad de filas que devuelve la consulta 
+SELECTT repid,qty,custnum
+FROM sales
+ORDER BY qty DESC limit 10
+~~~
+#### Recuperacion de daatos de dos tablas 
+~~~
+*UNION -> permite juntar las tablas /misma cantidad de columnas y mismo tipo de datos
+SELECT partnum,bktitle,pubdate
+FROM titles
+UNION ALL -> permite traer todas las filas 
+SELECT partnum,bktitle,pubdate
+FROM obsolete_titles
+
+*INNER JOIN -> permite hacer la union entrre varias tablas / debe tener una columna en comun en ambas tablas (PK/FK)
+SELECT custnum,fname,lname, slspers.repid
+FROM sales
+INNER JOIN slspers ON sales.repid = slspers.repid
+ORDER BY custum 
+
+*OUTER JOIN 
+
+
+SELECT c.custum, c.bktitle 
+FROM potencial_custumers as c
+~~~
+
