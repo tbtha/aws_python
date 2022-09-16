@@ -312,8 +312,9 @@ por logica -> pytest : de que la logica del codigo este clara
 administracion de la configuracion de software
 -> control de versiones 
 ~~~
-
+_______________________________________________________________________
 ## BASE DE DATOS -> orientado a MySQL
+#### https://sql-playground.wizardzines.com/
 #### DATOS: trosos de info en bruto / partes y fragmentos de info sin procesar (bits de infomacion)
 #### una base de datos es un conjunto de datos que se organiza en archivos denominados TABLAS (son formas logicas de acceder a los datos gestionarlos y actualizarlos )
 #### MODELO DE DATOS : estructura logica de una base de datos 
@@ -555,13 +556,17 @@ FROM titles
 ORDE BY slprice ASC, partnum DESC
 
 **FUNCIONES DE CLASIFICACION SELECT 
-*RANK() devuelve el numero de los registros / PARTITION clasifica un conjunto de datos iguales / la columna rank pone el numero de indice por los valores de qty (1,1,3,3)
+*RANK() devuelve el numero de los registros / PARTITION divide las filas de acuerdo a una columna(ej.reppid) / la columna rank pone el numero de indice por los valores de qty (1,1,3,3) / 
 SELECTT repid,qty,custnum,
 RANK() OVER (PARTITION BY repid ORDER BY qty DESC) AS 'Rank'
 FROM sales
 
 *DENSE_RANK() -> me entrega valore concecutivos en base a misma funcion RANK (1,2,2,3,4,4)
+
 *ROW_NUMBER() -> numero secuenciasl de cada fila(1,2,3,4,5,6..)
+SELECTT repid,qty,custnum,
+ROW_NUMBER() OVER (ORDER BY qty DESC) AS 'Row number'
+FROM sales
 
 *NTILE -> va dandole un valor de forma equilivabra de acuerdo a la cantidad de registro 
 SELECTT repid,qty,custnum,
@@ -593,4 +598,23 @@ ORDER BY custum
 SELECT c.custum, c.bktitle 
 FROM potencial_custumers as c
 ~~~
+### propiedad de las transaciones ACID
+##### NORMALIZACION -->  https://guru99.es/database-normalization/
+~~~
+**TRANSACCIONES -> CONJUNTO DE QURY QUE SE PROCESAN JUNTAS EN UNA TRANSACCION 
+*START TRANSACTION 
+USE emp_table
+START TRANSACTION
+UPDATE emp_ID
 
+
+*secuencia de trabajo 
+*ROLLBACK-> ABANDONAR LA TRANSACION Y DESHACER CUALQUIER TRABAJO REALIZADO
+
+*COMMIT -> hacer comentarios 
+
+
+_____________-
+*DROP TABLE IF EXISTS table_name 
+
+~~~
