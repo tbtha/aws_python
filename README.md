@@ -634,3 +634,23 @@ creará un grupo de subredes de base de datos que se emplea a fin de informar a 
 
 Las implementaciones Multi-AZ de Amazon RDS proporcionan mejoras en la disponibilidad y la durabilidad de las instancias de base de datos, lo que las hace adecuadas para las cargas de trabajo de bases de datos de producción. Cuando aprovisiona una instancia Multi-AZ de base de datos, Amazon RDS crea automáticamente una instancia de base de datos principal y, de forma sincronizada, replica los datos a una instancia en espera en una zona de disponibilidad diferente.
 
+Escalamiento vertical: crece en tamaño RDS
+Escalanamiento horizontal: crece en numero DynamoDB
+DynamoDB
+tablas: conjunto de datos
+elementos: grupo de atributo que es unico, un conjunto de elementos es una tabla {
+"lastName": "Smith",
+"FirstName":"Fred",
+}
+atributo: define las caracteristicas/info del elemento clave/valor -> "lastName": "Smith",
+
+Tablas globales de amazon dynamoDB
+un beneficio de usar dynamo es que permite tener una repilicar enlas regiones que necesitamos , las ocupamos cuando necesitamos rendimiento en nuestras app
+
+Deccripcion de las claves
+(partition key)claves de particion -> es una clave principal de un solo atributo 
+(sort key/optional)claves de particion y la de ordinacion -> conocida como clave principal compuesta confromada por dos atributos 
+
+**las claves principales identifican de forma unica cada elemento de la tabla, de modo que no hay dos elemtneos que tegan la misma clave
+**sirven para hacer una busqueda mas rapida, 
+
