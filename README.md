@@ -654,3 +654,34 @@ Deccripcion de las claves
 **las claves principales identifican de forma unica cada elemento de la tabla, de modo que no hay dos elemtneos que tegan la misma clave
 **sirven para hacer una busqueda mas rapida, 
 
+
+
+CREATE TABLE restart (
+        studentID INT PRYMARY KEY,
+        studentName VARCHAR(20),
+        restartCity VARCHAR(20),
+        graduationDate DATE
+)
+
+INSERT INTO restart (studentID,studentName,restartCity,graduationDate)
+VALUES(1,"Tabatha","Santiago","2022-09-23"),
+      (2,"belen","Valparaiso","2022-09-25"),
+      (3,"pedro","Temuco","2022-09-27"),
+      (4,"juan","Santiago","2022-09-28"),
+      (5,"maria","Temuco","2022-09-21");
+     
+CREATE TABLE cloud_practitioner(
+      studentID INT,
+      certificationDate DATE
+      );
+      
+INSERT INTO cloud_practitioner(studentID,certificationDate)
+VALUES(1,"2022-10-30"),
+       (2,"2022-11-2"),
+       (3,"2022-10-30"),
+       (4,"2022-11-05"),
+       (5,"2022-10-30");
+       
+       SELECT r.studentID,studentName,certificationDate FROM restart r  INNER JOIN cloud_practitioner c ON r.studentID = c.studentID;
+
+       
