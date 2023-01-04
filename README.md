@@ -4,6 +4,15 @@
 ~~~
 La barra diagonal invertida final (\) en el valor de la variable del paso anterior se utiliza para mantener el cumplimiento de la guía de estilo Propuestas de Mejora de Python (PEP) 
 ~~~
+### Primeros pasos para python
+~~~
+Buscar python en algun navegador y descargamos la version que necesitemos 
+     - de ser necesario, ponerle check a "Add pyton to PATH", para configurar python a las variables de entorno 
+Instalar visual studio code
+     - instalar extension python  para poder ejecutarlo desde el vscode
+     
+~~~
+
 
 ## Tipos de datos
 ##### type() identifica que tipo de datos es la variable
