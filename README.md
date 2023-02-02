@@ -58,6 +58,9 @@ de numero a string str()
 #### Una funcion le indica a la computadora que realice una tarea especifica 
 /n salto de linea ->slash invertido 
 ~~~
+
+ultima posicion de una variable puede llamarse con -1 
+
 / type() nos permite reconocer que tipo de datos es 
 
 / print() 
